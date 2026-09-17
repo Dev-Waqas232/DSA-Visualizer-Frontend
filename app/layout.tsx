@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 import "./globals.css";
-import Sidebar from "../components/Sidebar";
+import Sidebar from "./components/Sidebar";
 
 import { Geist_Mono, Poppins } from "next/font/google";
+import { ReactNode } from "react";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
   title: "DSA Visualizer",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={`${poppins.variable} ${geistMono.variable}`}>
       <body className="h-full flex">
