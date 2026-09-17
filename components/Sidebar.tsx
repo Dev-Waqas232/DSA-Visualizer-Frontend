@@ -1,8 +1,9 @@
+import { ALGORITHMS, DATA_STRUCTURES } from "@/constants/sidebar-list";
 import { BsDiagram3 } from "react-icons/bs";
 
 export default function Sidebar() {
   return (
-    <aside className="w-xs h-screen overflow-auto border-0 border-r rounded-r-lg py-8">
+    <aside className="w-xs h-screen overflow-auto border-0 border-r rounded-r-lg pt-8">
       <div className="pb-8">
         <h1 className="text-xl px-4 flex items-center gap-4">
           <BsDiagram3 />
@@ -10,14 +11,34 @@ export default function Sidebar() {
         </h1>
       </div>
       <section>
-        <h2 className="font-mono bg-text-primary text-background px-4">
+        <h2 className="font-mono bg-text-primary text-background px-4 uppercase tracking-widest">
           Data Structures
         </h2>
+        <ul>
+          {DATA_STRUCTURES.map((d) => (
+            <li
+              key={d.slug}
+              className="px-6 border-0 not-last:border-b py-3 cursor-pointer hover:bg-text-primary hover:text-background hover:border-background transition-all"
+            >
+              {d.name}
+            </li>
+          ))}
+        </ul>
       </section>
       <section>
-        <h2 className="font-mono bg-text-primary text-background px-4">
+        <h2 className="font-mono bg-text-primary text-background px-4 uppercase tracking-widest">
           Algorithms
         </h2>
+        <ul>
+          {ALGORITHMS.map((a) => (
+            <li
+              key={a.slug}
+              className="px-6 border-0 not-last:border-b py-3 cursor-pointer hover:bg-text-primary hover:text-background hover:border-background transition-all"
+            >
+              {a.name}
+            </li>
+          ))}
+        </ul>
       </section>
     </aside>
   );
